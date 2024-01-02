@@ -6,51 +6,51 @@ If your plugin does not need CSS, delete this file.
 */
 
 .link-wrapper {
-	border-radius: 8px;
-	width: 100%;
-	display: flex;
-	overflow: hidden;
-	height: 150px;
-	border: 1px solid var(--background-modifier-border);
-	margin: 20px 0;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    height: 150px;
+    border: 1px solid var(--background-modifier-border);
+    margin: 20px 0;
 }
 
 .link-image-wrapper {
-	display: flex;
-	width: 240px;
-	justify-content: center;
+    display: flex;
+    width: 240px;
+    justify-content: center;
 }
 .link-image {
-	height: 100%;
-	object-fit: cover;
+    height: 100%;
+    object-fit: cover;
 }
 
 .link-info {
-	flex: 1;
-	padding: 16px;
-	overflow: hidden;
+    flex: 1;
+    padding: 16px;
+    overflow: hidden;
 }
 .link-title {
-	font-size: 20px;
-	color: var(--text-normal);
-	margin: 0 0 4px 0;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+    font-size: 20px;
+    color: var(--text-normal);
+    margin: 0 0 4px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .link-desc {
-	font-size: 16px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-	color: var(--text-muted);
-	margin: 0 0 4px 0;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-muted);
+    margin: 0 0 4px 0;
 }
 .link-url {
-	font-size: 16px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-	color: var(--text-faint);
-	margin: 0 0 4px 0;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-faint);
+    margin: 0 0 4px 0;
 }
