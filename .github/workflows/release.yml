@@ -9,7 +9,7 @@ name:
 on:
   push:
     branches:
-      - "main"
+      - "master"
       - "ci"
 
 jobs:
