@@ -5,13 +5,13 @@ export const isUrl = (url: string) => {
     return urlRegex.test(url);
 };
 
-export const createDOM = (
-    tag: keyof HTMLElementTagNameMap,
+export const createDOM = <T extends keyof HTMLElementTagNameMap>(
+    tag: T,
     className: string,
     textContent?: string,
 ) => {
-    const dom = document.createElement(tag);
-    dom.classList.add(className);
+    const dom = document.createElement<T>(tag);
+    dom.classList.add(`doto-${className}`);
     if (textContent) dom.textContent = textContent;
     return dom;
 };

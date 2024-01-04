@@ -15,8 +15,7 @@ export class LinkWidget extends WidgetType {
         super();
     }
     toDOM(view: EditorView): HTMLElement {
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("link-wrapper");
+        const wrapper = createDOM("div", "link-wrapper");
         ajaxPromise({
             url: `http://iframely.server.crestify.com/iframely?url=${this.url}`,
         }).then((res) => {
@@ -24,11 +23,9 @@ export class LinkWidget extends WidgetType {
             const imageUrl =
                 result.links.find((v) => v.type.startsWith("image/"))?.href ??
                 "";
-            const img = document.createElement("img");
-            img.classList.add("link-image");
+            const img = createDOM("img", "link-image");
             img.src = imageUrl;
-            const imgWrapper = document.createElement("div");
-            imgWrapper.classList.add("link-image-wrapper");
+            const imgWrapper = createDOM("div", "link-iamge-wrapper");
             imgWrapper.append(img);
             wrapper.append(imgWrapper);
 
@@ -38,16 +35,6 @@ export class LinkWidget extends WidgetType {
             info.append(createDOM("div", "link-url", this.url));
             wrapper.append(info);
         });
-        /* 		setTimeout(() => {
-			console.log("test update");
-			this.loading = true;
-			view.dispatch(
-				view.state.changeByRange((range) => ({
-					changes: [],
-					range: EditorSelection.range(this.from, this.to),
-				})),
-			);
-		}, 3000); */
         return wrapper;
     }
     eq(widget: LinkWidget): boolean {
@@ -68,6 +55,7 @@ export const LinkPreviewField = StateField.define<DecorationSet>({
 
         syntaxTree(transaction.state).iterate({
             enter(node) {
+                console.log(node.type);
                 if (!node.type.name.contains("link")) return;
                 const nodeContent = transaction.state.doc.sliceString(
                     node.from,

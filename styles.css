@@ -5,7 +5,7 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 */
 
-.link-wrapper {
+.doto-link-wrapper {
     border-radius: 8px;
     width: 100%;
     display: flex;
@@ -15,22 +15,23 @@ If your plugin does not need CSS, delete this file.
     margin: 20px 0;
 }
 
-.link-image-wrapper {
+.doto-link-image-wrapper {
     display: flex;
     width: 240px;
     justify-content: center;
 }
-.link-image {
+.doto-link-image {
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.link-info {
+.doto-link-info {
     flex: 1;
     padding: 16px;
     overflow: hidden;
 }
-.link-title {
+.doto-link-title {
     font-size: 20px;
     color: var(--text-normal);
     margin: 0 0 4px 0;
@@ -38,7 +39,7 @@ If your plugin does not need CSS, delete this file.
     overflow: hidden;
     white-space: nowrap;
 }
-.link-desc {
+.doto-link-desc {
     font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -46,7 +47,7 @@ If your plugin does not need CSS, delete this file.
     color: var(--text-muted);
     margin: 0 0 4px 0;
 }
-.link-url {
+.doto-link-url {
     font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;
