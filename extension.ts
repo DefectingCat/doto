@@ -15,7 +15,9 @@ export class LinkWidget extends WidgetType {
         super();
     }
     toDOM(view: EditorView): HTMLElement {
+        const outer = createDOM("div", "link-outer");
         const wrapper = createDOM("div", "link-wrapper");
+        outer.append(wrapper);
         ajaxPromise({
             url: `http://iframely.server.crestify.com/iframely?url=${this.url}`,
         }).then((res) => {
@@ -35,7 +37,7 @@ export class LinkWidget extends WidgetType {
             info.append(createDOM("div", "link-url", this.url));
             wrapper.append(info);
         });
-        return wrapper;
+        return outer;
     }
     eq(widget: LinkWidget): boolean {
         return this.loading === widget.loading;
@@ -55,7 +57,6 @@ export const LinkPreviewField = StateField.define<DecorationSet>({
 
         syntaxTree(transaction.state).iterate({
             enter(node) {
-                console.log(node.type);
                 if (!node.type.name.contains("link")) return;
                 const nodeContent = transaction.state.doc.sliceString(
                     node.from,
