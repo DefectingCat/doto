@@ -68,12 +68,13 @@ export const LinkPreviewField = StateField.define<DecorationSet>({
                     sibling.from,
                     sibling.to,
                 );
-                if (!url || !isUrl(url)) return;
+                if (!url || !isUrl(url) || !node.node.parent?.to) return;
                 const deco = Decoration.widget({
                     widget: new LinkWidget(url),
+                    block: true,
                     side: 1,
                 });
-                widgets.push(deco.range(node.to));
+                widgets.push(deco.range(node.node.parent.to));
             },
         });
 
