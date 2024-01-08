@@ -1,7 +1,7 @@
 {
 	"id": "doto",
 	"name": "Doto",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"manifest_version": 2,
 	"minAppVersion": "0.15.0",
 	"description": "Url preview plugin for Obsidian",
