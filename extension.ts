@@ -19,14 +19,12 @@ import {
 import { createDOM, isUrl, LinkResult } from "utils";
 
 export class LinkWidget extends WidgetType {
-    loading = false;
-
     constructor(public url: string) {
         super();
     }
-    toDOM(view: EditorView): HTMLElement {
+
+    renderDOM() {
         const outer = createDOM("div", "link-outer");
-        outer.append(this.url);
         const wrapper = createDOM("div", "link-wrapper");
         outer.append(wrapper);
         ajaxPromise({
@@ -50,11 +48,16 @@ export class LinkWidget extends WidgetType {
         });
         return outer;
     }
+
+    toDOM(view: EditorView): HTMLElement {
+        return this.renderDOM();
+    }
     eq(widget: LinkWidget): boolean {
-        return this.loading === widget.loading;
+        return this.url === widget.url;
     }
     updateDOM(dom: HTMLElement, view: EditorView): boolean {
-        dom.textContent = "test updated";
+        dom.removeChild(dom.children[0]);
+        dom.append(this.renderDOM().children[0]);
         return true;
     }
 }
