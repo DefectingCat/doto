@@ -18,7 +18,7 @@ export default class Doto extends Plugin {
         this.addSettingTab(new DotoSettingTab(this.app, this));
     }
 
-    onunload() {}
+    onunload() { }
 
     async loadSettings() {
         this.settings = Object.assign(
